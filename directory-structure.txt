@@ -12,4 +12,5 @@ KarthikeyaR.github.io/
 ├── css/
 │   ├── light-theme.css
 │   └── dark-theme.css
+├── blogs.html
 └── .gitignore
