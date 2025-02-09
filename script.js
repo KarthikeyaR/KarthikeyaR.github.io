@@ -1,11 +1,37 @@
 // Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const themeStyle = document.getElementById('theme-style');
+// const themeToggle = document.getElementById('theme-toggle');
+// const themeStyle = document.getElementById('theme-style');
 
-themeToggle.addEventListener('click', () => {
-    const currentTheme = themeStyle.href.includes('light-theme.css') ? 'dark' : 'light';
-    themeStyle.href = `css/${currentTheme}-theme.css`;
-    themeToggle.innerHTML = currentTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+// themeToggle.addEventListener('click', () => {
+//     const currentTheme = themeStyle.href.includes('light-theme.css') ? 'dark' : 'light';
+//     themeStyle.href = `css/${currentTheme}-theme.css`;
+//     themeToggle.innerHTML = currentTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+// });
+
+
+// Enhanced Theme Toggle functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeStyle = document.getElementById('theme-style');
+    
+    // Check for saved theme preference or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+    });
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        themeStyle.href = `css/${theme}-theme.css`;
+        themeToggle.innerHTML = theme === 'dark' 
+            ? '<i class="fas fa-sun fa-lg"></i>' 
+            : '<i class="fas fa-moon fa-lg"></i>';
+    }
 });
 
 // Search Functionality
@@ -39,28 +65,3 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     });
 });
 
-
-// Enhanced Theme Toggle functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeStyle = document.getElementById('theme-style');
-    
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-    });
-
-    function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        themeStyle.href = `css/${theme}-theme.css`;
-        themeToggle.innerHTML = theme === 'dark' 
-            ? '<i class="fas fa-sun fa-lg"></i>' 
-            : '<i class="fas fa-moon fa-lg"></i>';
-    }
-});
