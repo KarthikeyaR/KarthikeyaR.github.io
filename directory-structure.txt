@@ -1,9 +1,15 @@
 KarthikeyaR.github.io/
 ├── index.html
 ├── styles.css
+├── script.js
 ├── assets/
 │   ├── images/
 │   │   ├── profile.jpg
-│   │   └── projects/
-├── README.md
+│   │   ├── projects/
+│   │   └── publications/
+│   │       ├── bigmm2020.jpg
+│   │       └── musical-instrument.jpg
+├── css/
+│   ├── light-theme.css
+│   └── dark-theme.css
 └── .gitignore
