@@ -1,162 +1,79 @@
-/* Base styles from previous version, plus these enhancements: */
-
-/* Navigation Styles */
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: var(--nav-bg);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+/* Blog Styles */
+.blog-container {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 0 20px;
 }
 
-.nav-left .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.nav-center {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-center a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-center a:hover {
-    color: var(--primary-color);
-}
-
-/* Search Bar Styles */
-.search-container {
-    position: relative;
-    margin-right: 1rem;
-}
-
-#search-input {
-    padding: 0.5rem 2rem 0.5rem 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    background: var(--search-bg);
-    color: var(--text-color);
-}
-
-.search-container i {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-color);
-}
-
-/* Theme Toggle */
-#theme-toggle {
-    background: none;
-    border: none;
-    color: var(--text-color);
-    cursor: pointer;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-}
-
-/* Publications Section */
-.publication-grid {
+.blog-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.publication-card {
-    display: flex;
+.blog-post {
     background: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.publication-card img {
-    width: 300px;
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+.blog-image img {
+    width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.publication-content {
+.blog-content {
     padding: 1.5rem;
-    flex: 1;
 }
 
-.publication-content h3 {
-    margin: 0 0 0.5rem 0;
+.blog-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color-muted);
+}
+
+.blog-category {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.blog-post h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
     color: var(--heading-color);
 }
 
-.conference {
+.blog-excerpt {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.read-more {
+    display: inline-block;
     color: var(--primary-color);
-    font-weight: 500;
-    margin-bottom: 1rem;
-}
-
-.publication-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.publication-links a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
     text-decoration: none;
-    color: var(--primary-color);
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-/* Contact Section Enhancements */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
+.read-more:hover {
+    color: var(--primary-color-hover);
 }
 
-.scholar-link {
-    background: #4285f4;
-    color: white;
-}
-
-/* Responsive Design */
+/* Add to your existing media queries */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    .nav-center {
-        margin: 1rem 0;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .publication-card {
-        flex-direction: column;
-    }
-
-    .publication-card img {
-        width: 100%;
-        height: 200px;
-    }
-
-    .contact-grid {
+    .blog-grid {
         grid-template-columns: 1fr;
     }
 }
