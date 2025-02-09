@@ -1,13 +1,12 @@
 // Theme Toggle
-// const themeToggle = document.getElementById('theme-toggle');
-// const themeStyle = document.getElementById('theme-style');
+const themeToggle = document.getElementById('theme-toggle');
+const themeStyle = document.getElementById('theme-style');
 
-// themeToggle.addEventListener('click', () => {
-//     const currentTheme = themeStyle.href.includes('light-theme.css') ? 'dark' : 'light';
-//     themeStyle.href = `css/${currentTheme}-theme.css`;
-//     themeToggle.innerHTML = currentTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-// });
-
+themeToggle.addEventListener('click', () => {
+    const currentTheme = themeStyle.href.includes('light-theme.css') ? 'dark' : 'light';
+    themeStyle.href = `css/${currentTheme}-theme.css`;
+    themeToggle.innerHTML = currentTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+});
 
 // Enhanced Theme Toggle functionality
 document.addEventListener('DOMContentLoaded', () => {
